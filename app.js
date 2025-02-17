@@ -38,11 +38,21 @@ app.post('/send-notification', (req, res) => {
             body: message
         },
         data: {
-            "Nick": "Mario",
-            "Room": "PortugalVSDenmark"
+            "route": "second",
+            "type": "navigate to second screen",
         },
         android: {
             "notification": {
+                "image": "https://picsum.photos/640/360"
+            }
+        },
+        apns: {
+            "payload": {
+                "aps": {
+                    "mutable-content": 1
+                }
+            },
+            "fcm_options": {
                 "image": "https://picsum.photos/640/360"
             }
         },
