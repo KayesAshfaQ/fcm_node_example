@@ -41,6 +41,11 @@ app.post('/send-notification', (req, res) => {
             "Nick": "Mario",
             "Room": "PortugalVSDenmark"
         },
+        android: {
+            "notification": {
+                "image": "https://picsum.photos/640/360"
+            }
+        },
     };
 
     admin.messaging().send(payload)
