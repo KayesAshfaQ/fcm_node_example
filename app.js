@@ -2,7 +2,8 @@ const express = require('express');
 
 const app = express();
 const admin = require('firebase-admin');
-const serviceAccount = require('/home/kayes/Downloads/cartupstage-firebase-adminsdk-ke0ra-932332eef3.json'); // Update the path to your service account key file
+// const serviceAccount = require('/home/kayes/Downloads/cartupstage-firebase-adminsdk-ke0ra-932332eef3.json'); // Update the path to your service account key file
+const serviceAccount = require('/Users/tn99249/Downloads/cartupstage-firebase-adminsdk-ke0ra-932332eef3.json'); // Update the path to your service account key file
 
 // Middleware to parse the request body as JSON data
 app.use(express.json());
@@ -31,11 +32,15 @@ app.post('/send-notification', (req, res) => {
     const { token, message } = req.body;
 
     const payload = {
+        token: token,
         notification: {
             title: 'Notification Title',
             body: message
         },
-        token: token,
+        data: {
+            "Nick": "Mario",
+            "Room": "PortugalVSDenmark"
+        },
     };
 
     admin.messaging().send(payload)
